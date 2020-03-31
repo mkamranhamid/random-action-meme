@@ -1,4 +1,4 @@
-file_name=./created_by_bash.md
+file_name=./README.md
 response_url=$(curl -s https://meme-api.herokuapp.com/gimme | jq -r '"### `"+.title+"`\n"+"!["+.title+"](" + .url +")"')
 
 if [[ -z "$response_url" ]]; then
