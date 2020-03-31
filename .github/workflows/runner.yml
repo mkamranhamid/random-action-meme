@@ -33,3 +33,14 @@ jobs:
     # command 2
     - name: app script time 
       run: sh ./index.sh
+
+    # command 3
+    - name: commit changes 
+      run: |
+        git config --global user.name 'Kamran Hamid'
+        git config --global user.email 'mkamranhamid@users.noreply.github.com'
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+        git checkout "${GITHUB_REF:11}"
+        git commit -am "Automated report"
+        git push
+      
